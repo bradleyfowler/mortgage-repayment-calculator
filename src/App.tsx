@@ -1,4 +1,5 @@
 import "./App.css";
+import Input from "./components/Input";
 
 function App() {
   return (
@@ -7,18 +8,13 @@ function App() {
         <h1>Mortgage Calculator</h1>
         <button>Clear All</button>
         <form>
-          <label htmlFor="amount">Mortgage Amount</label>
-          <input type="text" name="amount" />
-          <label htmlFor="term">Mortgage Term</label>
-          <input type="text" name="term" />
-          <label htmlFor="rate">Interest Rate</label>
-          <input type="text" name="rate" />
+          <Input name="amount" label="Mortgage Amount" type="text" />
+          <Input name="term" label="Mortgage Term" type="text" />
+          <Input name="rate" label="Interest Rate" type="text" />
           <fieldset>
             <legend>Mortgage Type</legend>
-            <input type="radio" name="repayment" />
-            <label htmlFor="repayment">Repayment</label>
-            <input type="radio" name="interest-only" />
-            <label htmlFor="interest-only">Interest Only</label>
+            <Input name="repayment" label="Repayment" type="radio" />
+            <Input name="interest-only" label="Interest Only" type="radio" />
           </fieldset>
           <button>Calculate Repayments</button>
         </form>
