@@ -1,6 +1,7 @@
 import "./App.css";
 import Button from "./components/Button";
 import Input from "./components/Input";
+import RadioButtonGroup from "./components/RadioButtonGroup";
 
 function App() {
   return (
@@ -14,8 +15,12 @@ function App() {
           <Input name="rate" label="Interest Rate" type="text" />
           <fieldset>
             <legend>Mortgage Type</legend>
-            <Input name="repayment" label="Repayment" type="radio" />
-            <Input name="interest-only" label="Interest Only" type="radio" />
+            <RadioButtonGroup
+              options={[
+                { label: "Repayment", value: "repayment" },
+                { label: "Interest Only", value: "interest-only" },
+              ]}
+            />
           </fieldset>
           <Button label="Calculate Repayments" />
         </form>
