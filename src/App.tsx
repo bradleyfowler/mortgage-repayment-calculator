@@ -1,4 +1,5 @@
 import "./App.css";
+import Button from "./components/Button";
 import Input from "./components/Input";
 
 function App() {
@@ -16,7 +17,7 @@ function App() {
             <Input name="repayment" label="Repayment" type="radio" />
             <Input name="interest-only" label="Interest Only" type="radio" />
           </fieldset>
-          <button>Calculate Repayments</button>
+          <Button label="Calculate Repayments" />
         </form>
         <section>
           <h1>Results shown here</h1>
