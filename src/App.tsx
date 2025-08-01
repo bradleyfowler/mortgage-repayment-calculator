@@ -1,5 +1,7 @@
 import { useActionState } from "react";
 
+import { calculateMortgagePayment } from "./helpers/mortgageCalculator";
+
 import Button from "./components/Button";
 import Input from "./components/Input";
 import RadioButtonGroup from "./components/RadioButtonGroup";
@@ -17,16 +19,20 @@ function App() {
       amount,
       term,
       rate,
-      repayment,
+      repayment: repayment[0],
     };
   }
 
-  const [formState, formAction] = useActionState(calculateMortgageAction, {
-    amount: 0,
-    term: 0,
-    rate: 0,
-    repayment: null,
-  });
+  const [formState, formAction] = useActionState(calculateMortgageAction, null);
+
+  const mortgagePayment =
+    formState &&
+    calculateMortgagePayment({
+      mortgageAmount: formState.amount,
+      intertestRate: formState.rate,
+      mortgageTerm: formState.term,
+      repaymentType: formState.repayment,
+    });
 
   return (
     <main>
@@ -71,7 +77,7 @@ function App() {
             repayments&quot; again.
           </p>
           <p>Your monthly repayments</p>
-          <p>£1797.74</p>
+          <p>{mortgagePayment}</p>
           <p>Total you&#39;ll repay over the term</p>
           <p>£539,322.94</p>
         </section>
