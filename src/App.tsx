@@ -1,15 +1,39 @@
-import "./App.css";
+import { useActionState } from "react";
+
 import Button from "./components/Button";
 import Input from "./components/Input";
 import RadioButtonGroup from "./components/RadioButtonGroup";
 
+import "./App.css";
+
 function App() {
+  function calculateMortgageAction(_, formData) {
+    const amount = formData.get("amount");
+    const term = formData.get("term");
+    const rate = formData.get("rate");
+    const repayment = formData.getAll("mortgage-type");
+
+    return {
+      amount,
+      term,
+      rate,
+      repayment,
+    };
+  }
+
+  const [formState, formAction] = useActionState(calculateMortgageAction, {
+    amount: 0,
+    term: 0,
+    rate: 0,
+    repayment: null,
+  });
+
   return (
     <main>
       <div>
         <h1>Mortgage Calculator</h1>
         <button>Clear All</button>
-        <form>
+        <form action={formAction}>
           <Input name="amount" label="Mortgage Amount" type="text" />
           <Input name="term" label="Mortgage Term" type="text" />
           <Input name="rate" label="Interest Rate" type="text" />
@@ -17,8 +41,16 @@ function App() {
             <legend>Mortgage Type</legend>
             <RadioButtonGroup
               options={[
-                { label: "Repayment", value: "repayment" },
-                { label: "Interest Only", value: "interest-only" },
+                {
+                  name: "mortgage-type",
+                  label: "Repayment",
+                  value: "repayment",
+                },
+                {
+                  name: "mortgage-type",
+                  label: "Interest Only",
+                  value: "interest-only",
+                },
               ]}
             />
           </fieldset>

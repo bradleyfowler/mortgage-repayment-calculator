@@ -1,14 +1,15 @@
 interface InputProps {
-  name: string;
   label: string;
+  name: string;
   type: string;
+  value?: string;
 }
 
-export default function Input({ name, label, type }: InputProps) {
+export default function Input({ name, label, type, value }: InputProps) {
   return (
     <>
       <label htmlFor={name}>{label}</label>
-      <input type={type} name={name} />
+      <input type={type} name={name} value={value} />
     </>
   );
 }
