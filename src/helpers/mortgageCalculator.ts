@@ -25,3 +25,10 @@ export function calculateMortgagePayment({
         ).toFixed(2)
       );
 }
+
+export function calculateTotalRepayment(
+  monthlyPayment: number,
+  mortgageTerm: number
+) {
+  return (monthlyPayment * (mortgageTerm * 12)).toFixed(2);
+}

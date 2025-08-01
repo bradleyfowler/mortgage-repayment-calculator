@@ -1,6 +1,9 @@
 import { useActionState } from "react";
 
-import { calculateMortgagePayment } from "./helpers/mortgageCalculator";
+import {
+  calculateMortgagePayment,
+  calculateTotalRepayment,
+} from "./helpers/mortgageCalculator";
 
 import Button from "./components/Button";
 import Input from "./components/Input";
@@ -25,14 +28,19 @@ function App() {
 
   const [formState, formAction] = useActionState(calculateMortgageAction, null);
 
-  const mortgagePayment =
-    formState &&
-    calculateMortgagePayment({
-      mortgageAmount: formState.amount,
-      intertestRate: formState.rate,
-      mortgageTerm: formState.term,
-      repaymentType: formState.repayment,
-    });
+  const mortgagePayment = formState
+    ? calculateMortgagePayment({
+        mortgageAmount: formState.amount,
+        intertestRate: formState.rate,
+        mortgageTerm: formState.term,
+        repaymentType: formState.repayment,
+      })
+    : null;
+
+  const totalRepayment =
+    formState && mortgagePayment
+      ? calculateTotalRepayment(mortgagePayment, formState.term)
+      : null;
 
   return (
     <main>
@@ -79,7 +87,7 @@ function App() {
           <p>Your monthly repayments</p>
           <p>{mortgagePayment}</p>
           <p>Total you&#39;ll repay over the term</p>
-          <p>£539,322.94</p>
+          <p>{totalRepayment}</p>
         </section>
       </div>
     </main>
