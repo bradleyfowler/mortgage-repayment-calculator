@@ -70,25 +70,28 @@ function App() {
           </fieldset>
           <Button label="Calculate Repayments" />
         </form>
-        <section>
-          <h1>Results shown here</h1>
-          <p>
-            Complete the form and click and &quot;calculate repayments&quot; to
-            see what your monthly repayments would be.
-          </p>
-        </section>
-        <section>
-          <h1>Your Results</h1>
-          <p>
-            Your results are shown below based on the information you provided.
-            To adjust the results, edit the form and click &quot;calculate
-            repayments&quot; again.
-          </p>
-          <p>Your monthly repayments</p>
-          <p>{mortgagePayment}</p>
-          <p>Total you&#39;ll repay over the term</p>
-          <p>{totalRepayment}</p>
-        </section>
+        {mortgagePayment && totalRepayment ? (
+          <section>
+            <h1>Your Results</h1>
+            <p>
+              Your results are shown below based on the information you
+              provided. To adjust the results, edit the form and click
+              &quot;calculate repayments&quot; again.
+            </p>
+            <p>Your monthly repayments</p>
+            <p>{mortgagePayment}</p>
+            <p>Total you&#39;ll repay over the term</p>
+            <p>{totalRepayment}</p>
+          </section>
+        ) : (
+          <section>
+            <h1>Results shown here</h1>
+            <p>
+              Complete the form and click and &quot;calculate repayments&quot;
+              to see what your monthly repayments would be.
+            </p>
+          </section>
+        )}
       </div>
     </main>
   );
