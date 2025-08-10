@@ -1,7 +1,9 @@
+import "./Button.css";
+
 interface ButtonProps {
   label: string;
 }
 
 export default function Button({ label }: ButtonProps) {
-  return <button>{label}</button>;
+  return <button className="button">{label}</button>;
 }
