@@ -1,4 +1,4 @@
-import Input from "./Input";
+import Radio from "./Radio/Radio";
 
 interface RadioButtonOption {
   label: string;
@@ -12,11 +12,6 @@ interface RadioButtonGroupProps {
 
 export default function RadioButtonGroup({ options }: RadioButtonGroupProps) {
   return options.map((option) => (
-    <Input
-      value={option.value}
-      name={option.name}
-      label={option.label}
-      type="radio"
-    />
+    <Radio value={option.value} name={option.name} label={option.label} />
   ));
 }
