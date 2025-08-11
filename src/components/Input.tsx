@@ -1,3 +1,5 @@
+import "./Input.css";
+
 interface InputProps {
   label: string;
   name: string;
@@ -8,8 +10,10 @@ interface InputProps {
 export default function Input({ name, label, type, value }: InputProps) {
   return (
     <>
-      <label htmlFor={name}>{label}</label>
-      <input type={type} name={name} value={value} />
+      <label className="label" htmlFor={name}>
+        {label}
+      </label>
+      <input className="input" type={type} name={name} value={value} />
     </>
   );
 }
