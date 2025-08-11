@@ -1,0 +1,11 @@
+@import "../../styles/variables.css";
+
+.link {
+  background: none;
+  border: none;
+  color: var(--colour-slate-700);
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}

@@ -1,6 +1,25 @@
+@import "./styles/variables.css";
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 24px;
   text-align: center;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.heading-container {
+  text-align: left;
+  margin-bottom: var(--spacing-300);
+}
+
+h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: var(--spacing-100);
 }
