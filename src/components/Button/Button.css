@@ -1,0 +1,17 @@
+@import "../../styles/variables.css";
+
+.button {
+  background-color: var(--colour-lime);
+  color: var(--colour-slate-900);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 18px;
+  font-weight: bold;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: hsl(61, 70%, 72%);
+}
