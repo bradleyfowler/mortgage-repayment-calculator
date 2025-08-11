@@ -5,8 +5,8 @@ import {
   calculateTotalRepayment,
 } from "./helpers/mortgageCalculator";
 
-import Button from "./components/Button";
-import Input from "./components/Input";
+import Button from "./components/Button/Button";
+import Input from "./components/Input/Input";
 import RadioButtonGroup from "./components/RadioButtonGroup";
 
 import "./App.css";
