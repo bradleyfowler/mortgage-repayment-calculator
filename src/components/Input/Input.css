@@ -19,11 +19,16 @@
   font-weight: bold;
   cursor: pointer;
   outline: none;
-  transition: border 0.3s ease;
 }
 
 .input:hover {
   border: 1px solid var(--colour-slate-900);
+}
+
+@media (hover: none) {
+  .input:hover {
+    border: 1px solid var(--colour-slate-500);
+  }
 }
 
 .input:focus {

@@ -1,4 +1,5 @@
 import { useActionState } from "react";
+import illustrationEmpty from "./assets/images/illustration-empty.svg";
 
 import {
   calculateMortgagePayment,
@@ -49,29 +50,31 @@ function App() {
         <h1>Mortgage Calculator</h1>
         <Link />
       </div>
-      <form action={formAction}>
-        <Input name="amount" label="Mortgage Amount" type="text" />
-        <Input name="term" label="Mortgage Term" type="text" />
-        <Input name="rate" label="Interest Rate" type="text" />
-        <fieldset>
-          <legend>Mortgage Type</legend>
-          <RadioButtonGroup
-            options={[
-              {
-                name: "mortgage-type",
-                label: "Repayment",
-                value: "repayment",
-              },
-              {
-                name: "mortgage-type",
-                label: "Interest Only",
-                value: "interest-only",
-              },
-            ]}
-          />
-        </fieldset>
-        <Button label="Calculate Repayments" />
-      </form>
+      <div className="form-container">
+        <form action={formAction}>
+          <Input name="amount" label="Mortgage Amount" type="text" />
+          <Input name="term" label="Mortgage Term" type="text" />
+          <Input name="rate" label="Interest Rate" type="text" />
+          <fieldset>
+            <legend>Mortgage Type</legend>
+            <RadioButtonGroup
+              options={[
+                {
+                  name: "mortgage-type",
+                  label: "Repayment",
+                  value: "repayment",
+                },
+                {
+                  name: "mortgage-type",
+                  label: "Interest Only",
+                  value: "interest-only",
+                },
+              ]}
+            />
+          </fieldset>
+          <Button label="Calculate Repayments" />
+        </form>
+      </div>
       {mortgagePayment && totalRepayment ? (
         <section>
           <h1>Your Results</h1>
@@ -86,7 +89,11 @@ function App() {
           <p>{totalRepayment}</p>
         </section>
       ) : (
-        <section>
+        <section className="results-placeholder">
+          <img
+            src={illustrationEmpty}
+            alt="Illustration of a calculator with currency symbols and money"
+          />
           <h1>Results shown here</h1>
           <p>
             Complete the form and click and &quot;calculate repayments&quot; to
