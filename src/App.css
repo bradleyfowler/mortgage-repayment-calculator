@@ -17,7 +17,7 @@ fieldset label:last-of-type {
 }
 
 .heading-container {
-  padding: var(--spacing-300);
+  padding: 0 var(--spacing-300);
   text-align: left;
   margin-bottom: var(--spacing-300);
 }
@@ -37,4 +37,34 @@ h1 {
   background-color: var(--colour-slate-900);
   color: var(--colour-white);
   padding: var(--spacing-400) var(--spacing-300);
+}
+
+.results-text {
+  color: var(--colour-slate-300);
+}
+
+.monthly-payments-label {
+  color: var(--colour-slate-300);
+}
+
+.total-payments-label {
+  color: var(--colour-slate-300);
+}
+
+.monthly-payment {
+  font-weight: bold;
+  margin: 0;
+  font-size: 56px;
+  color: var(--colour-lime);
+}
+
+.total-payments {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.results-details-section {
+  padding: var(--spacing-200) var(--spacing-300);
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.25);
 }

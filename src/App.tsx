@@ -75,32 +75,38 @@ function App() {
           <Button label="Calculate Repayments" />
         </form>
       </div>
-      {mortgagePayment && totalRepayment ? (
-        <section>
-          <h1>Your Results</h1>
-          <p>
-            Your results are shown below based on the information you provided.
-            To adjust the results, edit the form and click &quot;calculate
-            repayments&quot; again.
-          </p>
-          <p>Your monthly repayments</p>
-          <p>{mortgagePayment}</p>
-          <p>Total you&#39;ll repay over the term</p>
-          <p>{totalRepayment}</p>
-        </section>
-      ) : (
-        <section className="results-placeholder">
-          <img
-            src={illustrationEmpty}
-            alt="Illustration of a calculator with currency symbols and money"
-          />
-          <h1>Results shown here</h1>
-          <p>
-            Complete the form and click and &quot;calculate repayments&quot; to
-            see what your monthly repayments would be.
-          </p>
-        </section>
-      )}
+      <section className="results-placeholder">
+        {mortgagePayment && totalRepayment ? (
+          <>
+            <h1>Your Results</h1>
+            <p className="results-text">
+              Your results are shown below based on the information you
+              provided. To adjust the results, edit the form and click
+              &quot;calculate repayments&quot; again.
+            </p>
+            <div className="results-details-section">
+              <p className="monthly-payments-label">Your monthly repayments</p>
+              <p className="monthly-payment">£{mortgagePayment}</p>
+              <p className="total-payments-label">
+                Total you&#39;ll repay over the term
+              </p>
+              <p className="total-payments">£{totalRepayment}</p>
+            </div>
+          </>
+        ) : (
+          <>
+            <img
+              src={illustrationEmpty}
+              alt="Illustration of a calculator with currency symbols and money"
+            />
+            <h1>Results shown here</h1>
+            <p>
+              Complete the form and click and &quot;calculate repayments&quot;
+              to see what your monthly repayments would be.
+            </p>
+          </>
+        )}
+      </section>
     </main>
   );
 }
