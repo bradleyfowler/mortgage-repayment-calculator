@@ -19,6 +19,7 @@
   font-weight: bold;
   cursor: pointer;
   outline: none;
+  transition: border 0.2s ease;
 }
 
 .input:hover {
@@ -33,4 +34,11 @@
 
 .input:focus {
   border: 1px solid var(--colour-lime);
+}
+
+@media (min-width: 1068px) {
+  .input-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 }

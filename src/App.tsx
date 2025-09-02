@@ -45,17 +45,19 @@ function App() {
       : null;
 
   return (
-    <main>
-      <div className="heading-container">
-        <h1>Mortgage Calculator</h1>
-        <Link />
-      </div>
+    <main className="form-results-wrapper">
       <div className="form-container">
+        <div className="heading-container">
+          <h1>Mortgage Calculator</h1>
+          <Link />
+        </div>
         <form action={formAction}>
           <Input name="amount" label="Mortgage Amount" type="text" />
-          <Input name="term" label="Mortgage Term" type="text" />
-          <Input name="rate" label="Interest Rate" type="text" />
-          <fieldset>
+          <div className="input-row">
+            <Input name="term" label="Mortgage Term" type="text" />
+            <Input name="rate" label="Interest Rate" type="text" />
+          </div>
+          <fieldset className="mortgage-type-fieldset">
             <legend>Mortgage Type</legend>
             <RadioButtonGroup
               options={[
